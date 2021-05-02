@@ -1,0 +1,67 @@
+#Snake Water Gun Game
+print("Welcome to Snake Water Gun Game")
+print(": s For Snake , w For Water , g For Gun :")
+
+import random
+_random=["snake","water","gun"]
+no_of_chances=0
+chances=10
+computer_points=0
+human_points=0
+while no_of_chances<10:
+    num1= input("SELECT : s : w : g :\n")
+    _choice=random.choice(_random)
+    print(f"Computer Choose : {_choice}")
+    #for draw
+    if num1=='s' and _choice=='snake' or num1=='w' and _choice=='water' or num1=='g' and _choice=='gun':
+        print("Tie Both Gets 0 Points")
+
+    #for input s
+    elif num1=='s' and _choice=='water':
+        human_points = human_points + 1
+        print("You Win")
+        print(f"Computer Points is {computer_points}  and Your Points are {human_points}")
+
+    elif num1=='s' and _choice=='gun':
+        computer_points = computer_points + 1
+        print("Computer Win")
+        print(f"Computer Points is {computer_points}  and Your Points are {human_points}")
+
+
+    #for input w
+    elif num1=='w' and _choice=='snake':
+        computer_points = computer_points + 1
+        print("Computer Win")
+        print(f"Computer Points is {computer_points}  and Your Points are {human_points}")
+
+    elif num1=='w' and _choice=='gun':
+        human_points = human_points + 1
+        print("You Win")
+        print(f"Computer Points is {computer_points}  and Your Points are {human_points}")
+    #for input g
+    elif num1=='g' and _choice=='snake':
+        human_points = human_points + 1
+        print("You Win")
+        print(f"Computer Points is {computer_points}  and Your Points are {human_points}")
+    elif num1=='g' and _choice=='water':
+        computer_points = computer_points + 1
+        print("Computer Win")
+        print(f"Computer Points is {computer_points}  and Your Points are {human_points}")
+    else:
+        print("You Have Entered Wrong Input")
+    no_of_chances=no_of_chances + 1
+    print(f"{chances - no_of_chances } left")
+
+
+print("Game Over")
+
+if computer_points>human_points:
+    print("Computer Wins")
+
+elif computer_points<human_points:
+    print("You wins")
+
+else:
+    print("Match Draw")
+
+print(f"Total Points of computer is {computer_points} and Human Points is {human_points}")
